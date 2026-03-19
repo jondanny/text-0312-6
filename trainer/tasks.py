@@ -20,6 +20,7 @@ async def start_task(task: TrainerProxyRequest) -> tuple[str, str]:
     hotkey = task.hotkey
 
     existing_task = get_task(task_id, hotkey)
+
     if existing_task:
         existing_task.logs.clear()
         existing_task.status = TaskStatus.TRAINING
